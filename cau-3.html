@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 3</title>
+</head>
+<h1 style="color:brown;">Câu 3</h1>
+<body>
+<br> Số lượng phần tử của mảng <input type="number" id="so" placeholder="Nhập 1 số">
+<button onclick="mang()">Tạo Mảng</button>
+<br>
+<br> Nhập số k <input type="number" id="k" placeholder="Nhập 1 số">
+<br>
+<br>
+<button style="width:130px; height:30px" onclick="check()"> Check</button>
+<br>
+<p id="mang"></p>
+<p id="result"></p>
+</body>
+<script>
+    let numbers = []
+    let result = "";
+    let count = 0;
+
+    function mang() {
+        let number = +document.getElementById("so").value;
+        if (number > 50) {
+            alert("Mảng ít hơn 50 phần tử")
+        } else {
+            for (let i = 0; i < number; i++) {
+                let thuTu = i + 1;
+                numbers[i] = +prompt("Nhập vào phần tử thứ " + thuTu + " của mảng:");
+            }
+            document.getElementById("mang").innerHTML = "Mảng ban đầu là: " + numbers;
+        }
+    }
+
+    function check() {
+        let sok = +document.getElementById("k").value;
+        let tong = 0;
+        for (let i = 0; i < numbers.length; i++) {
+            for (let j = i + 1; j < numbers.length; j++) {
+                tong = numbers[i] + numbers[j];
+                if (tong % sok === 0) {
+                    count++
+                }
+            }
+        }
+        document.getElementById("result").innerHTML = "Số cặp thỏa mãn là: " + count;
+    }
+
+</script>
+</html>

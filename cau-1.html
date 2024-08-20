@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<h1 style="color:brown;">Câu 1 - final model 1</h1>
+<body>
+<br> Thêm phần tử cho mảng (nếu muốn) <input type="number" id="new" placeholder="Nhập 1 số"> </br>
+<br>
+<button style="width:200px; height:30px" onclick="check()"> Add and Check Array</button>
+<br>
+<p id="mang"></p>
+<p id="phantucantim"></p>
+<p id="tong"></p>
+
+</body>
+<script>
+    let numbers = [1, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 30]
+    if (numbers.length > 20) {
+        alert("Mảng không được vượt quá 20 phần tử")
+        numbers.splice(20, 1)
+    }
+    document.getElementById("mang").innerHTML = " Mảng ban đầu: " + numbers;
+
+    function check() {
+        //add
+        let ptu = +document.getElementById("new").value
+        numbers.push(ptu);
+        console.log(numbers)
+        document.getElementById("mang").innerHTML = " Mảng mới: " + numbers;
+        //check
+        let result = ""
+        let tong = 0;
+        for (let i = 0; i < numbers.length; i++) {
+            if (numbers[i] % 3 === 0 && numbers[i] % 5 === 0) {
+                result += numbers[i] + "; "
+                document.getElementById("phantucantim").innerHTML = " Phần tử là bội chung của 3 và 5 là: " + result;
+                tong += numbers[i]
+            }
+            document.getElementById("tong").innerHTML = " Tổng các phần tử trên là: " + tong;
+        }
+        if (numbers.length > 20) {
+            alert("Mảng không được vượt quá 20 phần tử")
+            numbers.splice(20, 1)
+        }
+        document.getElementById("mang").innerHTML = " Mảng ban đầu: " + numbers;
+
+    }
+</script>
+</html>

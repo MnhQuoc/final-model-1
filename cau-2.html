@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 2</title>
+</head>
+<h1 style="color:brown;">Câu 2</h1>
+
+<body>
+<p id="result"></p>
+<p id="lamtron"></p>
+</body>
+<script>
+    let nums = [55, 60, 65, 70, 75, 80, 85, 90, 95, 100]
+
+    function xeploai(diem) {
+        if (diem > 100 || diem < 0) {
+            alert("Điểm của học sinh không thể vượt quá 100 hoặc nhỏ hơn 0")
+        } else if (diem >= 50) {
+            document.getElementById("result").innerHTML = "Học sinh pass module ";
+            for (let i = 0; i < nums.length; i++) {
+                if (nums[i] - diem < 3 && nums[i] - diem > 0) {
+                    diem = nums[i]
+                    document.getElementById("lamtron").innerHTML = "Điểm cuối cùng " + diem;
+                } else {
+                    document.getElementById("lamtron").innerHTML = "Điểm cuối cùng " + diem;
+
+                }
+            }
+        } else if (diem < 50) {
+            document.getElementById("result").innerHTML = "Học sinh fail module ";
+        }
+    }
+    xeploai(52)
+</script>
+</html>
